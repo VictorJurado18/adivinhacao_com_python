@@ -1,9 +1,7 @@
 import random
 import funcoes_adivinhacao
 
-print("\033[0;32;40m#####################################")
-print("#  Bem vindo ao jogo de Adivinhação #")
-print("#####################################\033[m\n")
+funcoes_adivinhacao.bem_vindo()
 
 numero_secreto = random.randrange(1,101)
 
@@ -18,7 +16,8 @@ total_tentativas = funcoes_adivinhacao.seleciona_nivel(nivel)
 while total_tentativas > 0:
     print(f"Você ainda tem {total_tentativas} tentativa(as).")
     chute = int(input("Digite um número entre 1 e 100: "))
-    total_tentativas = funcoes_adivinhacao.verifica_chute(chute, numero_secreto, total_tentativas)
-    
-    
+    total_tentativas, ganhou = funcoes_adivinhacao.verifica_chute(chute, numero_secreto, total_tentativas)
 
+funcoes_adivinhacao.verifica_se_ganhou(ganhou, numero_secreto)
+
+    
